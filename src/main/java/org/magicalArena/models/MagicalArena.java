@@ -3,12 +3,16 @@ package org.magicalArena.models;
 import org.magicalArena.controller.GameController;
 import org.magicalArena.exceptions.InvalidPlayerConstructionException;
 
+import java.util.Scanner;
+
 public class MagicalArena {
     private static GameController gameController = new GameController();
 
     public static void main(String[] args) {
-        Player player1 = Player.builder().name("Player1").strength(20).health(100).attack(10).build();
-        Player player2 = Player.builder().name("Player2").strength(10).health(100).attack(20).build();
+        Scanner scanner1 = new Scanner(System.in);
+        Player player1 = createPlayer(scanner1, "Player 1");
+        Scanner scanner2 = new Scanner(System.in);
+        Player player2 = createPlayer(scanner2, "Player 2");
         Match match = null;
         try {
             match = gameController.createMatch(player1, player2);
@@ -20,5 +24,23 @@ public class MagicalArena {
         } catch (InvalidPlayerConstructionException e) {
             System.out.println("Invalid player construction: " + e.getMessage());
         }
+    }
+
+    private static Player createPlayer(Scanner scanner, String defaultName) {
+        System.out.println("Enter "+ defaultName +"'s name: ");
+        String playerName = scanner.nextLine();
+        playerName = playerName.trim().isEmpty() ? defaultName : playerName;
+        System.out.println("Enter "+ playerName +"'s strength: ");
+        int playerStrength = scanner.nextInt();
+        System.out.println("Enter "+ playerName +"'s health: ");
+        int playerHealth = scanner.nextInt();
+        System.out.println("Enter "+ playerName +"'s attack: ");
+        int playerAttack = scanner.nextInt();
+        return Player.builder()
+                .setName(playerName)
+                .setStrength(playerStrength)
+                .setHealth(playerHealth)
+                .setAttack(playerAttack)
+                .build();
     }
 }

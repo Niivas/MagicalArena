@@ -1,4 +1,7 @@
 package org.magicalArena.models;
+
+import java.text.Collator;
+
 public class Player {
     private String name;
     private int strength;
@@ -62,22 +65,22 @@ public class Player {
         private int health;
         private int attack;
 
-        public Builder name(String name) {
+        public Builder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder strength(int strength) {
+        public Builder setStrength(int strength) {
             this.strength = strength;
             return this;
         }
 
-        public Builder health(int health) {
+        public Builder setHealth(int health) {
             this.health = health;
             return this;
         }
 
-        public Builder attack(int attack) {
+        public Builder setAttack(int attack) {
             this.attack = attack;
             return this;
         }
@@ -101,5 +104,6 @@ public class Player {
             this.validate();
             return new Player(this);
         }
+
     }
 }
