@@ -1,15 +1,21 @@
 package org.magicalArena.models;
 
 
+import org.magicalArena.exceptions.InvalidPlayerConstructionException;
+
 public class Match {
     private Player attacker;
     private Player defender;
 
     private Player winner;
 
-    public Match(Player attacker, Player defender) {
-        this.attacker = attacker;
-        this.defender = defender;
+
+    public Match(Player attacker, Player defender) throws InvalidPlayerConstructionException {
+        if (attacker.getHealth() ==0 || defender.getHealth() == 0) {
+            throw new IllegalArgumentException("Atleast one player should have health greater than 0 to start the match.");
+        }
+        this.attacker = attacker.getHealth()<=defender.getHealth() ? attacker : defender; // Player1 will attack first if both have same health
+        this.defender = attacker.getHealth()>defender.getHealth() ? attacker : defender;
     }
 
     public void fight() {

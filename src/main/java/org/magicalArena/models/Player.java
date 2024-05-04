@@ -86,17 +86,14 @@ public class Player {
         }
 
         public void validate() {
-            if (name == null || name.isEmpty()) {
-                throw new IllegalArgumentException("Name cannot be null or empty");
-            }
-            if (strength <= 0) {
+            if (strength < 0) {
                 throw new IllegalArgumentException("Strength cannot be negative");
             }
-            if (health <= 0) {
-                throw new IllegalArgumentException("Health cannot be negative");
+            if (health < 0) {
+                throw new IllegalArgumentException("Strength cannot be negative");
             }
-            if (attack <= 0) {
-                throw new IllegalArgumentException("Attack cannot be negative");
+            if (attack < 0) {
+                throw new IllegalArgumentException("Strength cannot be negative");
             }
         }
 

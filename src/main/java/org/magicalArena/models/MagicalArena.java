@@ -10,9 +10,12 @@ public class MagicalArena {
 
     public static void main(String[] args) {
         Scanner scanner1 = new Scanner(System.in);
+        System.out.println("*** Player 1 ***");
         Player player1 = createPlayer(scanner1, "Player 1");
         Scanner scanner2 = new Scanner(System.in);
+        System.out.println("*** Player 2 ***");
         Player player2 = createPlayer(scanner2, "Player 2");
+        System.out.println("------------------------------------------------------");
         Match match = null;
         try {
             match = gameController.createMatch(player1, player2);
