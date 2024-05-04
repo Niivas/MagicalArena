@@ -38,6 +38,44 @@ To run this project, you need to have opened this project in an IDE and run the 
 * Run the MagicalArena class to start the game.
 * Follow the prompts to play the game.
 
+Each turn, the console will display the following information:
+
+* Names of the Attacker and Defender.
+* Die value rolled to determine the attack and defense power of the player.
+* The player's attack and defense power will be shown.
+* The damage inflicted on the defender will be displayed.
+* The Health of both players will be shown after the turn.
+
+At the start of the game, the console will display the following information:
+
+* Names and attributes of both players.
+
+After the game ends, the console will display the following information:
+* Winner of the match.
+
+Example:
+
+```
+Match started between Jake { strength= 1, Initial health= 15, attack= 2 } and John { strength= 2, Initial health= 10, attack= 2 }
+------------------------------------------------------
+
+Attacker: Jake Defender: John
+
+Jake rolled a die and got 6
+Jake attacked with a power of 12(2 * 6) damage
+John rolled a die and got 1
+John defended with a power of 2(2 * 1)
+John took a damage of 10
+
+Health Status:
+Health of John is 0
+Health of Jake is 15
+
+------------------------------------------------------
+Match ended between Jake and John
+Match won by Jake with health 15
+```
+
 # Unit Testing:
 * The project contains the test cases for the Player class and Match class.
 * Navigate to the test folder in the src folder.

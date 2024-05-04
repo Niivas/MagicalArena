@@ -52,13 +52,13 @@ private int rollDie(Player player) {
 
 private int executeAttack(Player player, int dieResult) {
     int attackValue = player.attack(dieResult);
-    System.out.println(player.getName() + " attacked with a damage of " + attackValue + "(" + player.getAttack() + " * " + dieResult + ")" + " damage");
+    System.out.println(player.getName() + " attacked with a power of " + attackValue + "(" + player.getAttack() + " * " + dieResult + ")" + " damage");
     return attackValue;
 }
 
 private int executeDefend(Player player, int dieResult) {
     int defendValue = player.defend(dieResult);
-    System.out.println(player.getName() + " defended with a damage of " + defendValue + "(" + player.getStrength() + " * " + dieResult + ")");
+    System.out.println(player.getName() + " defended with a power of " + defendValue + "(" + player.getStrength() + " * " + dieResult + ")");
     return defendValue;
 }
 
