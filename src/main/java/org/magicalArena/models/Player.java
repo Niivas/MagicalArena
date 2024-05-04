@@ -69,18 +69,19 @@ public class Player {
             if (name == null || name.isEmpty()) {
                 throw new IllegalArgumentException("Name cannot be null or empty");
             }
-            if (strength < 0) {
+            if (strength <= 0) {
                 throw new IllegalArgumentException("Strength cannot be negative");
             }
-            if (health < 0) {
+            if (health <= 0) {
                 throw new IllegalArgumentException("Health cannot be negative");
             }
-            if (attack < 0) {
+            if (attack <= 0) {
                 throw new IllegalArgumentException("Attack cannot be negative");
             }
         }
 
         public Player build() {
+            this.validate();
             return new Player(this);
         }
     }

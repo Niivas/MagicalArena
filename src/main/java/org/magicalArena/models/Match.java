@@ -18,10 +18,13 @@ public class Match {
             int attackValue = attacker.attack();
             System.out.println(attacker.getName() + " attacked " + defender.getName() + " with " + attackValue + " damage");
             int defendValue = defender.defend();
-            System.out.println(defender.getName() + " defended with " + defendValue + " damage");
+            System.out.println(defender.getName() + " defended a damage of " + defendValue);
             int damage = Math.max(0, attackValue - defendValue);
             defender.takeDamage(damage);
-            System.out.println(defender.getName() + " took " + damage + " damage");
+            System.out.println("Health Status:");
+            System.out.println("Health of " + attacker.getName() + " is " + attacker.getHealth());
+            System.out.println("Health of " + defender.getName() + " is " + defender.getHealth());
+            System.out.println();
             if (defender.getHealth() <= 0) {
                 winner = attacker;
             }

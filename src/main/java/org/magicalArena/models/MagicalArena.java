@@ -7,7 +7,7 @@ public class MagicalArena {
     private static GameController gameController = new GameController();
 
     public static void main(String[] args) {
-        Player player1 = Player.builder().name("Player1").strength(2).health(100).attack(10).build();
+        Player player1 = Player.builder().name("Player1").strength(0).health(100).attack(10).build();
         Player player2 = Player.builder().name("Player2").strength(1).health(100).attack(20).build();
         Match match = null;
         try {
