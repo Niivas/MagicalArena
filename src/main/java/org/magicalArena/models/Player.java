@@ -1,6 +1,6 @@
 package org.magicalArena.models;
 
-import java.text.Collator;
+import org.magicalArena.exceptions.InvalidPlayerConstructionException;
 
 public class Player {
     private String name;
@@ -85,19 +85,19 @@ public class Player {
             return this;
         }
 
-        public void validate() {
+        public void validate() throws InvalidPlayerConstructionException {
             if (strength < 0) {
-                throw new IllegalArgumentException("Strength cannot be negative");
+                throw new InvalidPlayerConstructionException("Strength cannot be negative");
             }
             if (health < 0) {
-                throw new IllegalArgumentException("Strength cannot be negative");
+                throw new InvalidPlayerConstructionException("Health cannot be negative");
             }
             if (attack < 0) {
-                throw new IllegalArgumentException("Strength cannot be negative");
+                throw new InvalidPlayerConstructionException("Attack cannot be negative");
             }
         }
 
-        public Player build() {
+        public Player build() throws InvalidPlayerConstructionException {
             this.validate();
             return new Player(this);
         }

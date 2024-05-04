@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class MagicalArena {
     private static GameController gameController = new GameController();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidPlayerConstructionException {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("*** Player 1 ***");
         Player player1 = createPlayer(scanner1, "Player 1");
@@ -29,7 +29,7 @@ public class MagicalArena {
         }
     }
 
-    private static Player createPlayer(Scanner scanner, String defaultName) {
+    private static Player createPlayer(Scanner scanner, String defaultName) throws InvalidPlayerConstructionException {
         System.out.println("Enter "+ defaultName +"'s name: ");
         String playerName = scanner.nextLine();
         playerName = playerName.trim().isEmpty() ? defaultName : playerName;

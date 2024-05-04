@@ -7,20 +7,17 @@ public class Match {
     private Player attacker;
     private Player defender;
 
-    private Player winner;
+    private Player winner ;
 
 
-    public Match(Player attacker, Player defender) throws InvalidPlayerConstructionException {
-        if (attacker.getHealth() ==0 || defender.getHealth() == 0) {
-            throw new IllegalArgumentException("Atleast one player should have health greater than 0 to start the match.");
-        }
+    public Match(Player attacker, Player defender) {
         this.attacker = attacker.getHealth()<=defender.getHealth() ? attacker : defender; // Player1 will attack first if both have same health
         this.defender = attacker.getHealth()>defender.getHealth() ? attacker : defender;
     }
 
     public void fight() {
     System.out.println("Match started between " + attacker + " and " + defender);
-    while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
+    while (attacker.getHealth() >= 0 && defender.getHealth() >= 0) {
         executeTurn(attacker, defender);
         if (defender.getHealth() <= 0) {
             winner = attacker;
