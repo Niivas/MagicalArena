@@ -27,7 +27,7 @@ public class Match {
     }
 }
 
-private void executeTurn(Player attacker, Player defender) {
+void executeTurn(Player attacker, Player defender) {
     System.out.println("------------------------------------------------------");
     System.out.println("Attacker: " + attacker.getName() + " Defender: " + defender.getName());
     System.out.println();
@@ -70,5 +70,13 @@ private int executeDefend(Player player, int dieResult) {
 
     public Player getWinner() {
         return winner;
+    }
+
+    public Player getAttacker() {
+        return attacker;
+    }
+
+    public Player getDefender() {
+        return defender;
     }
 }

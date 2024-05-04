@@ -52,7 +52,7 @@ public class Player {
     }
 
     public void takeDamage(int damage){
-        this.health -= damage;
+        this.health = Math.max(0, this.health - damage);
     }
 
     public int rollDie(){
@@ -86,6 +86,9 @@ public class Player {
         }
 
         public void validate() throws InvalidPlayerConstructionException {
+            if (name == null || name.trim().isEmpty()) {
+                throw new InvalidPlayerConstructionException("Name cannot be empty");
+            }
             if (strength < 0) {
                 throw new InvalidPlayerConstructionException("Strength cannot be negative");
             }
