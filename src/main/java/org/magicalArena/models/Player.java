@@ -13,6 +13,21 @@ public class Player {
         return health;
     }
 
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public String toString() {
+        return name+ " {" +
+                " strength= " + strength +
+                ", Initial health= " + health +
+                ", attack= " + attack + " " +
+                '}';
+    }
 
     private Player(Builder builder) {
         this.name = builder.name;
@@ -25,18 +40,20 @@ public class Player {
         return new Builder();
     }
 
-    public int attack(){
-        int dieResult = (int) (Math.random() * 6 + 1);
+    public int attack(int dieResult){
         return dieResult * this.attack;
     }
 
-    public int defend(){
-        int dieResult = (int) (Math.random() * 6 + 1);
+    public int defend(int dieResult){
         return dieResult * this.strength;
     }
 
     public void takeDamage(int damage){
         this.health -= damage;
+    }
+
+    public int rollDie(){
+        return (int) (Math.random() * 6 + 1);
     }
 
     protected static class Builder {
