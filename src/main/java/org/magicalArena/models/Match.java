@@ -24,12 +24,10 @@ public class Match {
             System.out.println(defender.getName() + " took " + damage + " damage");
             if (defender.getHealth() <= 0) {
                 winner = attacker;
-                break;
             }
             this.playerSwap();
             System.out.println("------------------------------------------------------");
         }
-        System.out.println("Match ended with winner: " + winner.getName());
     }
 
     public void playerSwap() {
