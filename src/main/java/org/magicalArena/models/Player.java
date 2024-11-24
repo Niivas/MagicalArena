@@ -8,6 +8,8 @@ public class Player {
     private int health;
     private int attack;
 
+    private DiceService diceService = new DiceService(new Dice());
+
     public String getName() {
         return name;
     }
@@ -56,7 +58,7 @@ public class Player {
     }
 
     public int rollDie(){
-        return (int) (Math.random() * 6 + 1);
+        return diceService.rollDie();
     }
 
     protected static class Builder {

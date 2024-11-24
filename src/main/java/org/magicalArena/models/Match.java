@@ -31,9 +31,9 @@ void executeTurn(Player attacker, Player defender) {
     System.out.println("------------------------------------------------------");
     System.out.println("Attacker: " + attacker.getName() + " Defender: " + defender.getName());
     System.out.println();
-    int attackerDieResult = rollDie(attacker);
+    int attackerDieResult = Math.max(rollDie(attacker), rollDie(attacker));
     int attackValue = executeAttack(attacker, attackerDieResult);
-    int defenderDieResult = rollDie(defender);
+    int defenderDieResult = Math.max(rollDie(defender), Math.max(rollDie(defender), rollDie(defender)));
     int defendValue = executeDefend(defender, defenderDieResult);
     int damage = Math.max(0, attackValue - defendValue);
     defender.takeDamage(damage);
